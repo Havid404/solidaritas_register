@@ -73,7 +73,6 @@ class MemberController extends Controller
             return redirect()->back()->with('success', 'Berhasil di blokir dari member');
         }
     }
-    
     public function delete($id)
     {
         $member = Member::find($id);
