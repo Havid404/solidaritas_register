@@ -39,7 +39,7 @@
       <div class="card-footer bg-whitesmoke text-right">
         <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
       </form>
-        <a href="{{ route('admin.admin.add') }}" class="btn btn-danger"><i class="fa fa-times"></i> Batal</a>
+        <a href="{{ route('admin.admin.index') }}" class="btn btn-danger"><i class="fa fa-times"></i> Batal</a>
       </div>
     </div>
   </div>
