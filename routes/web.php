@@ -33,6 +33,7 @@ Route::get('admin','Admin\AdminPageController@beranda')->middleware('IsAuth')->n
 
 // Member
 Route::get('admin/member','Admin\MemberController@datamember')->middleware('IsAuth')->name('data_member');
+Route::delete('admin/member-delete/{id}','Admin\MemberController@delete')->middleware('IsAuth')->name('admin.member.delete');
 Route::get('admin/request','Admin\MemberController@index')->middleware('IsAuth')->name('member_request');
 Route::get('admin/request/{id}','Admin\MemberController@detailMember')->middleware('IsAuth')->name('member_detail');
 

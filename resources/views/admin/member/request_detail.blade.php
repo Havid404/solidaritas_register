@@ -284,13 +284,9 @@
                 </div>
               </div>
               <div class="card-footer bg-whitesmoke text-center">
-                <a class="btn btn-warning" href="{{ route('beranda') }}">
+                <a class="btn btn-warning" href="{{ route('beranda')}}">
                   <i class="fa fa-arrow-left"></i>
                   Kembali
-                </a>
-                <a class="btn btn-info" href="{{ route('layout_cetak', $detail->id) }}">
-                  <i class="fas fa-print"></i>
-                  Cetak Kartu
                 </a>
               </div>
           </div>

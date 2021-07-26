@@ -19,7 +19,7 @@
                           <h4>Menunggu Approve</h4>
                       </div>
                       <div class="card-body">
-                        50
+                        {{$menunggu1M}}
                     </div>
                   </div>
               </div>
@@ -34,7 +34,7 @@
                           <h4>Jumlah Semua Member</h4>
                       </div>
                       <div class="card-body">
-                        50
+                        {{$member1M}}
                     </div>
                   </div>
               </div>
@@ -49,7 +49,7 @@
                           <h4>Jumlah Administrator</h4>
                       </div>
                       <div class="card-body">
-                          50
+                          {{$admin1M}}
                       </div>
                   </div>
               </div>
@@ -64,7 +64,7 @@
                           <h4>Total Semua Pengguna</h4>
                       </div>
                       <div class="card-body">
-                        50
+                        {{$pengguna1M}}
                     </div>
                   </div>
               </div>

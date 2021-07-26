@@ -23,7 +23,7 @@
                       <th class="text-center">Alamat</th>
                       <th class="text-center">Pendidikan</th>
                       <th class="text-center">Status</th>
-                      <th class="text-center"></th>
+                      <th class="text-center">Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -37,12 +37,18 @@
                           <td class="text-center">{{ $member->address }}</td> 
                           <td class="text-center">{{ $member->education->education }}</td>  
                           <td class="text-center">{{ $member->is_active == false ? 'Belum Dikonfirmasi' : 'Sudah Dikonfirmasi'}}</td>  
-                          <td>
+                          <td class="text-center">
+                            <div class="d-flex d-inline justify-content-center">
                             <button class="btn btn-sm btn-success"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-sm btn-info" href="{{url('admin/request/detail')}}"><i class="fa fa-search"></i></button>
-                            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-                            <button title="Hapus" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#confirmApprove" data-url="{{ route('admin.member.approve', $member->id) }}" title="Hapus"><i class="fas fa-{{ $member->is_active == false ? 'check' : 'ban'  }}"></i></button>
-                            </td>
+                            <a class="btn btn-sm btn-info ml-1" href="{{ route('member_detail', $member->id )}}"><i class="fa fa-search"></i></a>
+                            <form action="{{ route('admin.member.delete', $member->id) }}" method="POST">
+                              @csrf
+                              @method('delete')
+                            <button type="submit" class="btn btn-sm btn-danger ml-1" onclick="return confirm('Apa Anda yakin ?');"><i class="fa fa-trash"></i></button>
+                            </form>
+                            <button title="Hapus" class="btn btn-sm btn-primary ml-1" data-toggle="modal" data-target="#confirmApprove" data-url="{{ route('admin.member.approve', $member->id) }}" title="Hapus"><i class="fas fa-{{ $member->is_active == false ? 'check' : 'ban'  }}"></i></button>
+                          </div>
+                          </td>
                         </tr>
                         @endforeach
                     </tbody>

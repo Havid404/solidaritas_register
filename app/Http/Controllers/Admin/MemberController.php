@@ -39,6 +39,15 @@ class MemberController extends Controller
         return view('admin.member_detail', compact('detail','qrcode','organization','family'));  
     }
 
+    public function detailRequest(){
+        $detail = Member::find($id);
+        $qrcode = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate(route('layout_detail', $id)));
+
+        $organization = MemberOrganitation::where('member_id', $detail->id)->first();
+        $family = Family::where('member_id', $detail->id)->first();
+        return view('admin.request_detail', compact('detail','qrcode','organization','family'));  
+    }
+
     public function cetak($id){
         $member = Member::find($id);
         $qrcode = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate(route('layout_detail', $id)));
@@ -63,6 +72,14 @@ class MemberController extends Controller
             Member::find($id)->update(['is_active'=>false]); 
             return redirect()->back()->with('success', 'Berhasil di blokir dari member');
         }
+    }
+    
+    public function delete($id)
+    {
+        $member = Member::find($id);
+        $member->delete();
+        User::find($member->user_id)->delete();
+        return redirect()->back()->with('success', 'Berhasil menghapus member');
     }
 
 }
