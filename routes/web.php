@@ -19,6 +19,16 @@ Route::get('/', 'AuthController@index')->middleware('IsDashboard')->name('login_
 Route::post('/login', 'AuthController@login')->name('login_submit');
 Route::get('/logout', 'AuthController@logout')->middleware('IsAuth')->name('logout');
 
+Route::prefix('admin')->name('admin.')->middleware('IsAuth')->group(function(){
+    Route::prefix('admin')->name('admin.')->group(function(){
+        Route::get('/', 'Admin\AdminController@index')->name('index');
+        Route::get('/edit/{id}', 'Admin\AdminController@edit')->name('edit');
+        Route::delete('/delete/{id}', 'Admin\AdminController@delete')->name('delete');
+        Route::post('/update/{id}', 'Admin\AdminController@update')->name('update');
+        Route::get('/add', 'Admin\AdminController@add')->name('add');
+        Route::post('/store', 'Admin\AdminController@store')->name('store');
+    });
+});
 // Regsiter
 Route::get('register','Member\RegisterController@register')->name('register_form');
 Route::post('register','Member\RegisterController@create')->name('register_submit');

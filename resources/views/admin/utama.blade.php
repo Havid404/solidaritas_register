@@ -93,7 +93,7 @@
               @if (Auth::user()->user_type == 'admin')
               <li class="menu-header">Data Admin</li>
               <li class="nav-item dropdown">
-                <a href="{{url('admin/adm')}}"><i class="fas fa-user"></i> <span>Kelola Admin</span></a>
+                <a href="{{route('admin.admin.index')}}"><i class="fas fa-user"></i> <span>Kelola Admin</span></a>
               </li>
               @endif
         </aside>
