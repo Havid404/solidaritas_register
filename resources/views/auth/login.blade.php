@@ -36,13 +36,8 @@
             </div>
 
            @if(Session::get('msg'))
-           <div class="alert alert-success alert-dismissible show fade">
-            <strong>Sukses! </strong>{{Session::get('msg')}}
-           </div>
-           @endif
-           @if(Session::get('alert'))
            <div class="alert alert-danger alert-dismissible show fade">
-            <strong>Gagal </strong>{{Session::get('alert')}}
+            <strong></strong>{{Session::get('msg')}}
            </div>
            @endif
             <br>

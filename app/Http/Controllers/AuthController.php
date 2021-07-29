@@ -35,7 +35,7 @@ class AuthController extends Controller
             {
                 if($user->member){
                     if($user->member->is_active == false){
-                        return redirect()->route('login_form')->with('alert', 'Akun Anda belum di verifikasi oleh Admin');
+                        return redirect()->route('login_form')->with('msg', 'Akun Anda belum di verifikasi oleh Admin');
                     }
                 }
                 Auth::login($user);
@@ -47,7 +47,7 @@ class AuthController extends Controller
 
         }
         else {
-            return redirect()->route('login_form')->with('msg', 'anda belum terdaftar');
+            return redirect()->route('login_form')->with('msg', 'Akun Anda belum terdaftar');
 
         }
     }

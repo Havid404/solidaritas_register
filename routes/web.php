@@ -28,6 +28,15 @@ Route::prefix('admin')->name('admin.')->middleware('IsAuth')->group(function(){
         Route::get('/add', 'Admin\AdminController@add')->name('add');
         Route::post('/store', 'Admin\AdminController@store')->name('store');
     });
+    Route::prefix('member')->name('member.')->group(function(){
+        Route::get('/', 'Admin\MemberController@index')->name('index');
+        Route::get('/edit/{id}', 'Admin\MemberController@edit')->name('edit');
+        Route::get('/show/{id}', 'Admin\MemberController@show')->name('show');
+        Route::delete('/delete/{id}', 'Admin\MemberController@delete')->name('delete');
+        Route::post('/update', 'Admin\MemberController@update')->name('update');
+        Route::get('/add', 'Admin\MemberController@add')->name('add');
+        Route::post('/store', 'Admin\MemberController@store')->name('store');
+    });
 });
 // Regsiter
 Route::get('register','Member\RegisterController@register')->name('register_form');
@@ -42,7 +51,7 @@ Route::post('/kelurahan','Service\WilayahController@kelurahan')->name('kelurahan
 Route::get('admin','Admin\AdminPageController@beranda')->middleware('IsAuth')->name('beranda');
 
 // Member
-Route::get('admin/member','Admin\MemberController@datamember')->middleware('IsAuth')->name('data_member');
+// Route::get('admin/member','Admin\MemberController@datamember')->middleware('IsAuth')->name('data_member');
 Route::delete('admin/member-delete/{id}','Admin\MemberController@delete')->middleware('IsAuth')->name('admin.member.delete');
 Route::get('admin/request','Admin\MemberController@index')->middleware('IsAuth')->name('member_request');
 Route::get('admin/request/{id}','Admin\MemberController@detailMember')->middleware('IsAuth')->name('member_detail');

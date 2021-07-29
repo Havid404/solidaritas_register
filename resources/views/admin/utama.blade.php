@@ -87,7 +87,7 @@
 
               <li class="menu-header">Data Member</li>
               <li class="nav-item dropdown">
-                <a href="{{route('data_member')}}"><i class="fas fa-user"></i> <span>Data Member</span></a>
+                <a href="{{route('admin.member.index')}}"><i class="fas fa-user"></i> <span>Data Member</span></a>
               </li>
 
               @if (Auth::user()->user_type == 'admin')
@@ -121,6 +121,6 @@
   </div>
 
 </body>
-
+@stack('scripts')
 @yield('js')
 </html>

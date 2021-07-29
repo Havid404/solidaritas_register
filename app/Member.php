@@ -20,15 +20,18 @@ class Member extends Model
     }
 
     public function family(){
-        return $this->belongsTo(Family::class);
+        return $this->hasOne(Family::class);
     }
 
     public function organitation(){
-        return $this->belongsTo(MemberOrganitation::class);
+        return $this->hasOne(MemberOrganitation::class);
     }
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function jobsEducation(){
+        return $this->hasOne(JobEducation::class);
     }
 
 }

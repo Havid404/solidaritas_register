@@ -12,4 +12,8 @@ class Family extends Model
     {
         return $this->belongsTo(FamiliesRelation::class);
     }
+    public function member()
+    {
+        return $this->belongsTo(Member::class);
+    }
 }
